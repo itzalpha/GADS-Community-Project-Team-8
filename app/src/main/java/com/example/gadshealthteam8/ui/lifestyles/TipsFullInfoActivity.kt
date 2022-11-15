@@ -24,7 +24,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class QuoteInfoActivity : AppCompatActivity() {
+class TipsFullInfoActivity : AppCompatActivity() {
 
     private lateinit var userArrayList: ArrayList<ReviewModel>
     private lateinit var myAdapter : ReviewItemAdapter
@@ -33,7 +33,6 @@ class QuoteInfoActivity : AppCompatActivity() {
     private lateinit var UserPersonName : String
     private lateinit var UserPersonEmail : String
     private lateinit var UserPersonPhoto : String
-    private lateinit var category : String
     private lateinit var docId : String
 
     private lateinit var binding : ActivityQuoteInfoBinding
@@ -50,10 +49,12 @@ class QuoteInfoActivity : AppCompatActivity() {
         val now = Date()
         val date = formatter.format(now)
 
-        val Quote = intent.getStringExtra("Quote")
-        val QuoteAuthor = intent.getStringExtra("QuoteAuthor")
-        val QuoteUploadDate = intent.getStringExtra("QuoteUploadDate")
-         category = intent.getStringExtra("category").toString()
+        val HealthTips = intent.getStringExtra("HealthTips")
+        val HealthTipsFullInfo = intent.getStringExtra("HealthTipsFullInfo")
+        val HealthTipsUploadDate = intent.getStringExtra("HealthTipsUploadDate")
+
+
+
          docId = intent.getStringExtra("docId").toString()
 
         progressDialog = ProgressDialog(this)
@@ -66,11 +67,11 @@ class QuoteInfoActivity : AppCompatActivity() {
 
 
         supportActionBar?.hide()
-        info_quote_author.text = "~~ $QuoteAuthor ~~"
-        info_quote_information.text = Quote
+        info_tip.text =  HealthTips
+        info_tip_information.text = HealthTipsFullInfo
 
 
-        quote_info_image_comment.setOnClickListener {
+        tip_info_image_comment.setOnClickListener {
             if (comments_review_layout.visibility == View.GONE){
                 comments_review_layout.visibility = View.VISIBLE
             }else{
@@ -80,16 +81,15 @@ class QuoteInfoActivity : AppCompatActivity() {
 
         }
 
-        quote_info_image_share.setOnClickListener {
-            ShareCompat.IntentBuilder.from(this@QuoteInfoActivity)
+        tip_info_image_share.setOnClickListener {
+            ShareCompat.IntentBuilder.from(this@TipsFullInfoActivity)
                 .setType("text/plain")
                 .setChooserTitle("R.string.app_name")
-                .setText("$Quote\n~$QuoteAuthor~\n")
+                .setText("$HealthTips\n\n ''$HealthTipsFullInfo''\n")
                 .startChooser()
         }
 
-        binding.quoteInfoImageLike.setOnClickListener {
-        /////    val dob = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
+        binding.tipInfoImageLike.setOnClickListener {
             val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
 
@@ -100,8 +100,7 @@ class QuoteInfoActivity : AppCompatActivity() {
                 }else
                 {
 
-                ///    val doc = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
-                    val doc = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
+                       val doc = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
                     val hashMap = hashMapOf<String , Any>(
                         "UserLikedId" to currentUserId ,
@@ -118,7 +117,7 @@ class QuoteInfoActivity : AppCompatActivity() {
             }
         }
 
-     ///   db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").get()
+
         db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").get()
 
             .addOnCompleteListener { task ->
@@ -128,14 +127,13 @@ class QuoteInfoActivity : AppCompatActivity() {
                         count++
                     }
                     Log.d("TAG", count.toString() + "")
-                    binding.itemQuoteInfoTextLikeNumbers.text= (count.toString() + "")
+                    binding.itemTipInfoTextLikeNumbers.text= (count.toString() + "")
                 } else {
                     Log.d("Tag", "Error getting documents: ", task.exception)
                 }
             }
 
 
-       //// val dob = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
         val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
         checkLike(dob , binding.imageLike )
@@ -148,8 +146,8 @@ class QuoteInfoActivity : AppCompatActivity() {
 
 
 
-        quote_review_button.setOnClickListener {
-            val review =  quote_review_text.text.toString().trim()
+        tip_review_button.setOnClickListener {
+            val review =  tip_review_text.text.toString().trim()
             if (review.isNotEmpty()){
                 addReview()
             }else{
@@ -158,7 +156,7 @@ class QuoteInfoActivity : AppCompatActivity() {
         }
 
 
-        val recyclerView : RecyclerView = quote_review_recyclerview
+        val recyclerView : RecyclerView = tip_review_recyclerview
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
@@ -176,7 +174,7 @@ class QuoteInfoActivity : AppCompatActivity() {
                         count++
                     }
                     Log.d("TAG", count.toString() + "")
-                    quote_recycler_count.text = (count.toString() + "")
+                    tip_recycler_count.text = (count.toString() + "")
                 } else {
                     Log.d("Tag", "Error getting documents: ", task.exception)
                 }
@@ -212,7 +210,7 @@ class QuoteInfoActivity : AppCompatActivity() {
 
     private fun addReview() {
         progressDialog.show()
-        val review =  quote_review_text.text.toString().trim()
+        val review =  tip_review_text.text.toString().trim()
 
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
         val now = Date()

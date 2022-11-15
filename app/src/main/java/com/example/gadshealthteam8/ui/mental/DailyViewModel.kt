@@ -1,4 +1,4 @@
-package com.example.gadshealthteam8.ui.daily
+package com.example.gadshealthteam8.ui.mental
 
 import androidx.lifecycle.ViewModel
 

@@ -1,4 +1,4 @@
-package com.example.gadshealthteam8.ui.daily
+package com.example.gadshealthteam8.ui.mental
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -58,7 +58,7 @@ class DailyFragment : Fragment() {
     private fun EventChangeListener() {
 
         db = FirebaseFirestore.getInstance()
-        db.collection("MotivationVerse").document("Users").collection("MotivationalQuote")
+        db.collection("HealthTips").document("Users").collection("Mental")
             .addSnapshotListener(object :EventListener<QuerySnapshot>{
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onEvent(value: QuerySnapshot?,

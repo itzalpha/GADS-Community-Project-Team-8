@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 
-        if(supportActionBar?.title.toString() contentEquals "Daily"){
+        if(supportActionBar?.title.toString() contentEquals "LifeStyle"){
             val builder = AlertDialog.Builder(this)
             builder.setTitle(R.string.app_name)
             builder.setIcon(R.mipmap.ic_launcher)

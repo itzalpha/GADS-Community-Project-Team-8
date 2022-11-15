@@ -3,15 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
 
-        <item
-            android:id="@+id/nav_daily"
-            android:icon="@drawable/daily"
-            android:title="Daily"
-            android:checkableBehavior="single"
-            />
-    </group>
 
     <item android:title="Health Categories"
 
@@ -25,20 +17,27 @@
 
                 <item
                     android:id="@+id/nav_home"
-                    android:icon="@drawable/quotes"
+                    android:icon="@drawable/lifestyle"
                     android:title="LifeStyle" />
                 <item
                     android:id="@+id/nav_gallery"
-                    android:icon="@drawable/stories"
+                    android:icon="@drawable/nutrition"
                     android:title="Nutrition" />
                 <item
                     android:id="@+id/nav_slideshow"
-                    android:icon="@drawable/speaker"
+                    android:icon="@drawable/diseases"
                     android:title="Diseases" />
 
                 <item
+                    android:id="@+id/nav_daily"
+                    android:icon="@drawable/mental"
+                    android:title="Mental"
+                    android:checkableBehavior="single"
+                    />
+                <item
+
                     android:id="@+id/nav_books"
-                    android:icon="@drawable/book"
+                    android:icon="@drawable/random"
                     android:title="Random" />
 
 

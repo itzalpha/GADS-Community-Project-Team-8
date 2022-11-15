@@ -27,16 +27,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ui.nutrition.StoryInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.diseases.SpeakersInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.random.BookInfoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.lifestyles.QuoteInfoActivity"
+            android:name=".ui.lifestyles.TipsFullInfoActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

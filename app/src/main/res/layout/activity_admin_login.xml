@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:text="Admin Password \n HealthTeam8"
         android:textSize="20sp"
+        android:textAlignment="center"
         android:textColor="?android:textColorPrimary"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/loginButton"

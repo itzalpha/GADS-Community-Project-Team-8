@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.gadshealthteam8.R
 import com.example.gadshealthteam8.checkLike
 import com.example.gadshealthteam8.model.TipsModel
-import com.example.gadshealthteam8.ui.lifestyles.QuoteInfoActivity
+import com.example.gadshealthteam8.ui.lifestyles.TipsFullInfoActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -56,7 +56,7 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
 
         // TODO:Assign Value to xml object
         holder.quote.text = user.HealthTips
-        holder.quote_author.text ="~"+user.HealthTipsAuthor+"~"
+
 
         // TODO:Perform Action in xml object
 
@@ -95,24 +95,11 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
             ShareCompat.IntentBuilder.from(context as Activity)
                 .setType("text/plain")
                 .setChooserTitle(R.string.app_name)
-                .setText(user.HealthTips + "\n" + "~"+user.HealthTipsAuthor+"~" + "\n")
+                .setText(user.HealthTips + "\n\n" + "''"+user.HealthTipsFullInformation+"''" + "\n")
                 .startChooser()
 
         }
 
-        db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    var count = 0
-                    for (document in task.result) {
-                        count++
-                    }
-                    Log.d("TAG", count.toString() + "")
-                    holder.item_quote_text_like_numbers.text = (count.toString() + "")
-                } else {
-                    Log.d("Tag", "Error getting documents: ", task.exception)
-                }
-            }
 
         db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").get()
             .addOnCompleteListener { task ->
@@ -122,18 +109,17 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
                         count++
                     }
                     Log.d("TAG", count.toString() + "")
-                    holder.quote_number_like.text = (count.toString() + "")
+                    holder.item_tip_text_like_numbers.text = (count.toString() + "")
                 } else {
                     Log.d("Tag", "Error getting documents: ", task.exception)
                 }
             }
 
         holder.layout.setOnClickListener {
-            val intent = Intent(context, QuoteInfoActivity::class.java)
-            intent.putExtra("Quote", user.HealthTips)
-            intent.putExtra("QuoteAuthor", user.HealthTipsAuthor)
-            intent.putExtra("QuoteUploadDate", user.HealthTipsUploadDate)
-            intent.putExtra("category" , user.HealthTipsCategory)
+            val intent = Intent(context, TipsFullInfoActivity::class.java)
+            intent.putExtra("HealthTips", user.HealthTips)
+            intent.putExtra("HealthTipsUploadDate", user.HealthTipsUploadDate)
+            intent.putExtra("HealthTipsFullInfo" , user.HealthTipsFullInformation)
             intent.putExtra("docId" ,  user.HealthTipsDocumentId)
               //user information
             intent.putExtra("UserPersonName" , personName )
@@ -155,13 +141,11 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
     }
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
-        val quote = view.item_quote_text
-        val quote_author = view.item_quote_text_author
-        val quote_image_like = view.quote_image_like
-        var quote_number_like = view.item_quote_text_like_numbers
-        val quote_image_share = view.quote_image_share
-        val layout = view.quote_item_layout
-        val item_quote_text_like_numbers= view.item_quote_text_like_numbers
+        val quote = view.item_tip_text
+        val quote_image_like = view.tip_image_like
+        val quote_image_share = view.tip_image_share
+        val layout = view.tip_item_layout
+        val item_tip_text_like_numbers= view.item_tips_text_like_numbers
     }
 
 }

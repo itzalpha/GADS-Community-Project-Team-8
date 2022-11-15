@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_daily">
+    app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_daily"
-        android:name="com.example.gadshealthteam8.ui.daily.DailyFragment"
-        android:label="Daily"
+        android:name="com.example.gadshealthteam8.ui.mental.DailyFragment"
+       android:label="Mental"
         tools:layout="@layout/daily_fragment">
         <action
             android:id="@+id/action_nav_daily_to_nav_home"
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.example.gadshealthteam8.ui.lifestyles.HomeFragment"
-        android:label="LifeStyles"
+        android:label="LifeStyle"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_gallery"

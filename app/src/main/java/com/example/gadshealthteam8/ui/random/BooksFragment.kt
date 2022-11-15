@@ -51,7 +51,7 @@ class BooksFragment : Fragment() {
     private fun EventChangeListener() {
 
         db = FirebaseFirestore.getInstance()
-        db.collection("MotivationVerse").document("Users").collection("MotivationalQuote")
+        db.collection("HealthTips").document("Users").collection("Random")
             .addSnapshotListener(object :EventListener<QuerySnapshot>{
                 @SuppressLint("NotifyDataSetChanged")
                 override fun onEvent(value: QuerySnapshot?,

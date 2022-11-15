@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.lifestyles.QuoteInfoActivity">
+    tools:context=".ui.lifestyles.TipsFullInfoActivity">
 
 
     <TextView
-        android:id="@+id/info_quote_information"
+        android:id="@+id/info_tip_information"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
@@ -17,21 +17,21 @@
         android:background="@drawable/rounded_text"
         android:padding="10dp"
         android:textAlignment="center"
-        android:text="Never Outshine the Master "
+        android:text=""
         android:textAppearance="@style/CourseTitle"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_quote_author" />
+        app:layout_constraintTop_toBottomOf="@+id/info_tip" />
 
     <TextView
-        android:id="@+id/info_quote_author"
+        android:id="@+id/info_tip"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
-        android:text="~~ The 48 laws Of Power ~~"
+        android:text=""
         android:textAlignment="center"
         android:textAppearance="@style/CourseTitle"
         android:background="@drawable/rounded_text"
@@ -51,17 +51,17 @@
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info_quote_information" />
+        app:layout_constraintTop_toBottomOf="@+id/info_tip_information" />
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/quote_info_image_like"
+        android:id="@+id/tip_info_image_like"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_text"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@+id/info_quote_information"
+        app:layout_constraintStart_toStartOf="@+id/info_tip_information"
         app:layout_constraintTop_toBottomOf="@+id/view">
 
         <ImageView
@@ -79,7 +79,7 @@
             app:tint="@color/purple_700" />
 
         <TextView
-            android:id="@+id/item_quote_info_text_like_numbers"
+            android:id="@+id/item_tip_info_text_like_numbers"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="0"
@@ -93,28 +93,28 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/quote_info_image_share"
+        android:id="@+id/tip_info_image_share"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_text"
         android:padding="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/info_quote_information"
+        app:layout_constraintEnd_toEndOf="@+id/info_tip_information"
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/share"
         app:tint="@color/purple_700" />
 
 
     <ImageView
-        android:id="@+id/quote_info_image_comment"
+        android:id="@+id/tip_info_image_comment"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:background="@drawable/rounded_text"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/quote_info_image_share"
-        app:layout_constraintEnd_toStartOf="@+id/quote_info_image_share"
-        app:layout_constraintStart_toEndOf="@+id/quote_info_image_like"
-        app:layout_constraintTop_toTopOf="@+id/quote_info_image_like"
+        app:layout_constraintBottom_toBottomOf="@+id/tip_info_image_share"
+        app:layout_constraintEnd_toStartOf="@+id/tip_info_image_share"
+        app:layout_constraintStart_toEndOf="@+id/tip_info_image_like"
+        app:layout_constraintTop_toTopOf="@+id/tip_info_image_like"
         app:srcCompat="@drawable/ic_baseline_comment_24"
         app:tint="@color/purple_700" />
 
@@ -132,10 +132,10 @@
         android:textAppearance="@style/CourseTitle"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quote_info_image_like" />
+        app:layout_constraintTop_toBottomOf="@+id/tip_info_image_like" />
 
     <TextView
-        android:id="@+id/quote_recycler_count"
+        android:id="@+id/tip_recycler_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -149,7 +149,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/quote_review_recyclerview"
+        android:id="@+id/tip_review_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -173,7 +173,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <EditText
-            android:id="@+id/quote_review_text"
+            android:id="@+id/tip_review_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -184,12 +184,12 @@
             android:padding="10dp"
             android:background="@drawable/rounded_text"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/quote_review_button"
+            app:layout_constraintEnd_toStartOf="@+id/tip_review_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/quote_review_button"
+            android:id="@+id/tip_review_button"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="8dp"
@@ -198,9 +198,9 @@
             android:background="@drawable/rounded_text"
             android:padding="8dp"
             android:src="@drawable/ic_baseline_send_24"
-            app:layout_constraintBottom_toBottomOf="@+id/quote_review_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tip_review_text"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/quote_review_text"
+            app:layout_constraintTop_toTopOf="@+id/tip_review_text"
             app:tint="@color/purple_200" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
