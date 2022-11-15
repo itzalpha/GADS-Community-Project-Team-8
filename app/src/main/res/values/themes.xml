@@ -22,4 +22,15 @@
     <style name="Theme.GADSHealthTeam8.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.GADSHealthTeam8.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CourseTitle" parent="@android:style/TextAppearance.Material.Medium">
+        <item name="android:textColor">@color/purple_700</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextStyle" parent="@android:style/TextAppearance.Material.Medium">
+        <item name="android:textColor">@color/purple_500</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

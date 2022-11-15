@@ -3,23 +3,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_daily">
+
+    <fragment
+        android:id="@+id/nav_daily"
+        android:name="com.example.gadshealthteam8.ui.daily.DailyFragment"
+        android:label="Daily"
+        tools:layout="@layout/daily_fragment">
+        <action
+            android:id="@+id/action_nav_daily_to_nav_home"
+            app:destination="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.gadshealthteam8.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.example.gadshealthteam8.ui.quote.HomeFragment"
+        android:label="LifeStyles"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_gallery"
+            app:destination="@id/nav_gallery" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.gadshealthteam8.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:name="com.example.gadshealthteam8.ui.stories.GalleryFragment"
+        android:label="Nutrition"
+        tools:layout="@layout/fragment_gallery" >
+        <action
+            android:id="@+id/action_nav_gallery_to_nav_books"
+            app:destination="@id/nav_books" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.gadshealthteam8.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:name="com.example.gadshealthteam8.ui.speakers.SlideshowFragment"
+        android:label="Diseases"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_nav_about_developer"
+            app:destination="@id/nav_about_developer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_books"
+        android:name="com.example.gadshealthteam8.ui.books.BooksFragment"
+        android:label="Random"
+        tools:layout="@layout/books_fragment">
+        <action
+            android:id="@+id/action_nav_books_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/nav_about_developer"
+        android:name="com.example.gadshealthteam8.support.AboutDeveloperFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about_developer">
+        <action
+            android:id="@+id/action_nav_about_developer_to_nav_feedback"
+            app:destination="@id/nav_feedback" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_feedback"
+        android:name="com.example.gadshealthteam8.support.FeedbackFragment"
+        android:label="Feed Back"
+        tools:layout="@layout/fragment_feedback"/>
 </navigation>

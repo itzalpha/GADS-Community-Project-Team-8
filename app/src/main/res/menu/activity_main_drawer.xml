@@ -4,17 +4,77 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_daily"
+            android:icon="@drawable/daily"
+            android:title="Daily"
+            android:checkableBehavior="single"
+            />
     </group>
+
+    <item android:title="Health Categories"
+
+        >
+
+        <menu
+            >
+
+            <group android:checkableBehavior="single">
+
+
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/quotes"
+                    android:title="LifeStyle" />
+                <item
+                    android:id="@+id/nav_gallery"
+                    android:icon="@drawable/stories"
+                    android:title="Nutrition" />
+                <item
+                    android:id="@+id/nav_slideshow"
+                    android:icon="@drawable/speaker"
+                    android:title="Diseases" />
+
+                <item
+                    android:id="@+id/nav_books"
+                    android:icon="@drawable/book"
+                    android:title="Random" />
+
+
+
+            </group>
+
+        </menu>
+
+    </item>
+
+    <item android:title="Support"
+
+        >
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_about_developer"
+                    android:icon="@drawable/about_us"
+                    android:title="About Us" />
+
+                <item
+                    android:id="@+id/nav_feedback"
+                    android:icon="@drawable/feedback"
+                    android:title="FeedBack" />
+
+
+            </group>
+
+
+
+
+
+        </menu>
+
+
+    </item>
+
 </menu>

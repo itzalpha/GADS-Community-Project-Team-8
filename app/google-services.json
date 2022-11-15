@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "896145264523",
+    "project_id": "freelance-project-ec4b8",
+    "storage_bucket": "freelance-project-ec4b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896145264523:android:caadcf546282b3fe93298e",
+        "android_client_info": {
+          "package_name": "com.itzlonelyalpha.gadshealthtips"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "896145264523-mr19trk972pqon5a4mca233o693jdnii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrlHQd-ks6gWna6u3CVn25YHI8RHVl_FI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "896145264523-mr19trk972pqon5a4mca233o693jdnii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

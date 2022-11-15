@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.quote.QuoteInfoActivity">
+
+
+    <TextView
+        android:id="@+id/info_quote_information"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        android:textAlignment="center"
+        android:text="Never Outshine the Master "
+        android:textAppearance="@style/CourseTitle"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_quote_author" />
+
+    <TextView
+        android:id="@+id/info_quote_author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="~~ The 48 laws Of Power ~~"
+        android:textAlignment="center"
+        android:textAppearance="@style/CourseTitle"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/purple_700"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/info_quote_information" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/quote_info_image_like"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_text"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/info_quote_information"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <ImageView
+            android:id="@+id/imageLike"
+            android:layout_width="40dp"
+            android:layout_height="0dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+            app:tint="@color/purple_700" />
+
+        <TextView
+            android:id="@+id/item_quote_info_text_like_numbers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="@style/CourseTitle"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageLike"
+            app:layout_constraintTop_toTopOf="@+id/imageLike" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/quote_info_image_share"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/info_quote_information"
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/share"
+        app:tint="@color/purple_700" />
+
+
+    <ImageView
+        android:id="@+id/quote_info_image_comment"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/quote_info_image_share"
+        app:layout_constraintEnd_toStartOf="@+id/quote_info_image_share"
+        app:layout_constraintStart_toEndOf="@+id/quote_info_image_like"
+        app:layout_constraintTop_toTopOf="@+id/quote_info_image_like"
+        app:srcCompat="@drawable/ic_baseline_comment_24"
+        app:tint="@color/purple_700" />
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:text="Comments"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/CourseTitle"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quote_info_image_like" />
+
+    <TextView
+        android:id="@+id/quote_recycler_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_text"
+        android:padding="10dp"
+        android:text="0"
+        android:textAppearance="@style/CourseTitle"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/quote_review_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/comments_review_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/comments_review_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/quote_review_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="@color/purple_700"
+            android:layout_marginBottom="8dp"
+            android:padding="10dp"
+            android:background="@drawable/rounded_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/quote_review_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/quote_review_button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_text"
+            android:padding="8dp"
+            android:src="@drawable/ic_baseline_send_24"
+            app:layout_constraintBottom_toBottomOf="@+id/quote_review_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/quote_review_text"
+            app:tint="@color/purple_200" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
