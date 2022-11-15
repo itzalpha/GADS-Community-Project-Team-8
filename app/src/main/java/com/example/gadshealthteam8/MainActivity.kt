@@ -2,6 +2,7 @@ package com.example.gadshealthteam8
 
 import android.os.Bundle
 import android.view.Menu
+import android.window.SplashScreen
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,7 +12,10 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.gadshealthteam8.databinding.ActivityMainBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //Delay splashscreen
+        runBlocking {
+            delay(3000)
+        }
+
+        //Splashscreen instance
+         installSplashScreen()
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)

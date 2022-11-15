@@ -52,4 +52,4 @@ dependencies {
     //Splashscreen api dependency
     def splashScreen_version = "1.0.0-beta02"
     implementation "androidx.core:core-splashscreen:$splashScreen_version"
-}cho
+}

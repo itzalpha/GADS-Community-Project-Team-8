@@ -22,4 +22,18 @@
     <style name="Theme.GADSHealthTeam8.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.GADSHealthTeam8.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!--Splash Screen theme goes Here-->
+    <style name="Theme.App.SplashScreen" parent="Theme.SplashScreen">
+        <!--Splashscreen Background colour-->
+        <item name="windowSplashScreenBackground">@color/blue_1</item>
+        <!--Splashscreen icon -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
+         <!--Theme for Activity after splash-->
+        <item name="postSplashScreenTheme">@style/Theme.GADSHealthTeam8.NoActionBar</item>
+
+    </style>
+
+
 </resources>
