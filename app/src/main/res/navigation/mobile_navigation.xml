@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.gadshealthteam8.ui.quote.HomeFragment"
+        android:name="com.example.gadshealthteam8.ui.lifestyles.HomeFragment"
         android:label="LifeStyles"
         tools:layout="@layout/fragment_home" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.gadshealthteam8.ui.stories.GalleryFragment"
+        android:name="com.example.gadshealthteam8.ui.nutrition.GalleryFragment"
         android:label="Nutrition"
         tools:layout="@layout/fragment_gallery" >
         <action
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.gadshealthteam8.ui.speakers.SlideshowFragment"
+        android:name="com.example.gadshealthteam8.ui.diseases.SlideshowFragment"
         android:label="Diseases"
         tools:layout="@layout/fragment_slideshow" >
         <action
@@ -47,7 +47,7 @@
 
     <fragment
         android:id="@+id/nav_books"
-        android:name="com.example.gadshealthteam8.ui.books.BooksFragment"
+        android:name="com.example.gadshealthteam8.ui.random.BooksFragment"
         android:label="Random"
         tools:layout="@layout/books_fragment">
         <action

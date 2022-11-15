@@ -1,7 +1,6 @@
-package com.example.gadshealthteam8.ui.books
+package com.example.gadshealthteam8.ui.random
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gadshealthteam8.Adapter.QuoteItemAdapter
+import com.example.gadshealthteam8.Adapter.TipsItemAdapter
 import com.example.gadshealthteam8.databinding.BooksFragmentBinding
-import com.example.gadshealthteam8.model.QuoteModel
+import com.example.gadshealthteam8.model.TipsModel
 
 import com.google.firebase.firestore.*
 
@@ -19,8 +18,8 @@ class BooksFragment : Fragment() {
 
 
     private  var _binding: BooksFragmentBinding? = null
-    private lateinit var userArrayList: ArrayList<QuoteModel>
-    private lateinit var myAdapter: QuoteItemAdapter
+    private lateinit var userArrayList: ArrayList<TipsModel>
+    private lateinit var myAdapter: TipsItemAdapter
     private  var db = FirebaseFirestore.getInstance()
 
     // This property is only valid between onCreateView and
@@ -38,7 +37,7 @@ class BooksFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
-        myAdapter = context?.let { QuoteItemAdapter(it, userArrayList) }!!
+        myAdapter = context?.let { TipsItemAdapter(it, userArrayList) }!!
         recyclerView.adapter = myAdapter
         EventChangeListener()
 
@@ -63,7 +62,7 @@ class BooksFragment : Fragment() {
 
                     for (dc : DocumentChange in  value?.documentChanges!!){
                         if (dc.type == DocumentChange.Type.ADDED){
-                            userArrayList.add(dc.document.toObject(QuoteModel::class.java))
+                            userArrayList.add(dc.document.toObject(TipsModel::class.java))
                             myAdapter.notifyDataSetChanged()
                         }
                         myAdapter.notifyDataSetChanged()

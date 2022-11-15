@@ -1,8 +1,6 @@
-package com.example.gadshealthteam8.ui.quote
+package com.example.gadshealthteam8.ui.lifestyles
 
-import android.app.Activity
 import android.app.ProgressDialog
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -92,7 +90,7 @@ class QuoteInfoActivity : AppCompatActivity() {
 
         binding.quoteInfoImageLike.setOnClickListener {
         /////    val dob = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
-            val dob = db.collection("MotivationVerse").document("Admin").collection("Quote_Likes").document(docId.toString()).collection("Users").document(currentUserId)
+            val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
 
             dob.get().addOnCompleteListener {  task ->
@@ -103,7 +101,7 @@ class QuoteInfoActivity : AppCompatActivity() {
                 {
 
                 ///    val doc = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
-                    val doc = db.collection("MotivationVerse").document("Admin").collection("Quote_Likes").document(docId.toString()).collection("Users").document(currentUserId)
+                    val doc = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
                     val hashMap = hashMapOf<String , Any>(
                         "UserLikedId" to currentUserId ,
@@ -121,7 +119,7 @@ class QuoteInfoActivity : AppCompatActivity() {
         }
 
      ///   db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").get()
-        db.collection("MotivationVerse").document("Admin").collection("Quote_Likes").document(docId.toString()).collection("Users").get()
+        db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").get()
 
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -138,7 +136,7 @@ class QuoteInfoActivity : AppCompatActivity() {
 
 
        //// val dob = db.collection("MotivationalVerse").document("Admin").collection("Book_Likes").document(docId.toString()).collection("Users").document(currentUserId)
-        val dob = db.collection("MotivationVerse").document("Admin").collection("Quote_Likes").document(docId.toString()).collection("Users").document(currentUserId)
+        val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
 
         checkLike(dob , binding.imageLike )
 
@@ -170,7 +168,7 @@ class QuoteInfoActivity : AppCompatActivity() {
 
 
         val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection("MotivationVerse").document("Admin").collection("Reviews").document("QuoteReviews").collection(docId).get()
+        db.collection("HealthTips").document("Admin").collection("Reviews").document("HealthTipsReviews").collection(docId).get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     var count = 0
@@ -189,7 +187,7 @@ class QuoteInfoActivity : AppCompatActivity() {
 
     private fun EventChangeListener() {
         db = FirebaseFirestore.getInstance()
-        db.collection("MotivationVerse").document("Admin").collection("Reviews").document("QuoteReviews").collection(docId)
+        db.collection("HealthTips").document("Admin").collection("Reviews").document("HealthTipsReviews").collection(docId)
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
                 override fun onEvent(value: QuerySnapshot?,
                                      error: FirebaseFirestoreException?) {
@@ -220,7 +218,7 @@ class QuoteInfoActivity : AppCompatActivity() {
         val now = Date()
         val date = formatter.format(now)
 
-        val db = FirebaseUtils().fireStoreDatabase.collection("MotivationVerse").document("Admin").collection("Reviews").document("QuoteReviews").collection(docId)
+        val db = FirebaseUtils().fireStoreDatabase.collection("HealthTips").document("Admin").collection("Reviews").document("HealthTipsReviews").collection(docId)
         val docId : String = db.id
         val hashMap = hashMapOf<String , Any>(
             "UserReviewName" to UserPersonName ,

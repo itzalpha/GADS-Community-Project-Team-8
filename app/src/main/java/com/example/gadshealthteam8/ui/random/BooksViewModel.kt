@@ -1,4 +1,4 @@
-package com.example.gadshealthteam8.ui.books
+package com.example.gadshealthteam8.ui.random
 
 import androidx.lifecycle.ViewModel
 

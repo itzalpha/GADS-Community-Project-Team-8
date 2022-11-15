@@ -1,27 +1,24 @@
-package com.example.gadshealthteam8.ui.speakers
+package com.example.gadshealthteam8.ui.lifestyles
 
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.gadshealthteam8.Adapter.QuoteItemAdapter
-import com.example.gadshealthteam8.databinding.FragmentSlideshowBinding
-import com.example.gadshealthteam8.model.QuoteModel
-import com.example.multiversegads.ui.speakers.SlideshowViewModel
-
+import com.example.gadshealthteam8.Adapter.TipsItemAdapter
+import com.example.gadshealthteam8.databinding.FragmentHomeBinding
+import com.example.gadshealthteam8.model.TipsModel
 import com.google.firebase.firestore.*
 
-class SlideshowFragment : Fragment() {
+class HomeFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
-    private lateinit var userArrayList: ArrayList<QuoteModel>
-    private lateinit var myAdapter: QuoteItemAdapter
+    private var _binding: FragmentHomeBinding? = null
+    private lateinit var userArrayList: ArrayList<TipsModel>
+    private lateinit var myAdapter: TipsItemAdapter
     private  var db = FirebaseFirestore.getInstance()
 
     // This property is only valid between onCreateView and
@@ -33,21 +30,19 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        val homeViewModel =
+            ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
 
         val recyclerView : RecyclerView = binding.recyclerview
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
-        myAdapter = context?.let { QuoteItemAdapter(it, userArrayList) }!!
+        myAdapter = context?.let { TipsItemAdapter(it, userArrayList) }!!
         recyclerView.adapter = myAdapter
         EventChangeListener()
-
 
 
 
@@ -55,10 +50,11 @@ class SlideshowFragment : Fragment() {
     }
 
 
+
     private fun filters(search: String) {
-        val filterlist: java.util.ArrayList<QuoteModel> = java.util.ArrayList<QuoteModel>()
+        val filterlist: java.util.ArrayList<TipsModel> = java.util.ArrayList<TipsModel>()
         for (  item in userArrayList) {
-            if (item.MotivationCategory?.toLowerCase()
+            if (item.HealthTipsCategory?.toLowerCase()
                     ?.contains(search.toLowerCase()) == true
 
             ) {
@@ -83,7 +79,7 @@ class SlideshowFragment : Fragment() {
 
                     for (dc : DocumentChange in  value?.documentChanges!!){
                         if (dc.type == DocumentChange.Type.ADDED){
-                            userArrayList.add(dc.document.toObject(QuoteModel::class.java))
+                          userArrayList.add(dc.document.toObject(TipsModel::class.java))
                             myAdapter.notifyDataSetChanged()
                         }
                         myAdapter.notifyDataSetChanged()
@@ -103,3 +99,5 @@ class SlideshowFragment : Fragment() {
         _binding = null
     }
 }
+
+

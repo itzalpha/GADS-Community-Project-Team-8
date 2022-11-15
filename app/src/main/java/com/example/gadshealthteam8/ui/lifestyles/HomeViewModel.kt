@@ -1,4 +1,4 @@
-package com.example.gadshealthteam8.ui.quote
+package com.example.gadshealthteam8.ui.lifestyles
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

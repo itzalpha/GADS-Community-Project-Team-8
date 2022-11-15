@@ -73,7 +73,7 @@ class FeedbackFragment : Fragment() {
         hashMap["FeedBackUsername"] = personName
         hashMap["FeedBackUserEmail"] = personEmail
 
-        FirebaseUtils().fireStoreDatabase.collection("MotivationVerse").document("Admin").collection("MotivationVerseFeedBack")
+        FirebaseUtils().fireStoreDatabase.collection("HealthTips").document("Admin").collection("HealthTipsFeedBack")
             .add(hashMap)
             .addOnSuccessListener {
                 if (progressDialog.isShowing)progressDialog.dismiss()

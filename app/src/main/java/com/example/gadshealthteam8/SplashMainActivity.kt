@@ -117,7 +117,7 @@ class SplashMainActivity : AppCompatActivity() {
         val now = Date()
         val date = formatter.format(now)
 
-        val db = FirebaseUtils().fireStoreDatabase.collection("HealthTips")
+        val db = FirebaseUtils().fireStoreDatabase.collection("HealthTips").document("Google Authenticated Users").collection("Health Tips Users")
         val docId : String = db.id
         val hashMap = hashMapOf<String , Any>(
             "PersonName" to personName.toString() ,
