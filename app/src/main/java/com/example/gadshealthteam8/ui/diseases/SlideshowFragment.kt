@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.example.gadshealthteam8.Adapter.TipsItemAdapter
 import com.example.gadshealthteam8.databinding.FragmentSlideshowBinding
 import com.example.gadshealthteam8.model.TipsModel
@@ -40,9 +42,11 @@ class SlideshowFragment : Fragment() {
 
 
         val recyclerView : RecyclerView = binding.recyclerview
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(context ,  LinearLayoutManager.HORIZONTAL,false)
         recyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
+        val snapHelper: SnapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(recyclerView)
         myAdapter = context?.let { TipsItemAdapter(it, userArrayList) }!!
         recyclerView.adapter = myAdapter
         EventChangeListener()
@@ -54,19 +58,6 @@ class SlideshowFragment : Fragment() {
     }
 
 
-    private fun filters(search: String) {
-        val filterlist: java.util.ArrayList<TipsModel> = java.util.ArrayList<TipsModel>()
-        for (  item in userArrayList) {
-            if (item.HealthTipsCategory?.toLowerCase()
-                    ?.contains(search.toLowerCase()) == true
-
-            ) {
-                filterlist.add(item)
-            }
-        }
-        myAdapter.Filteredlist(filterlist)
-
-    }
 
     private fun EventChangeListener() {
 

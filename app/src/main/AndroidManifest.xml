@@ -13,14 +13,34 @@
         android:theme="@style/Theme.GADSHealthTeam8"
         tools:targetApi="31">
         <activity
-            android:name=".AdminMainActivity"
-            android:exported="false">
+            android:name=".admin.AdminTipsFullInfoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GADSHealthTeam8.NoActionBar"
+            >
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AdminLogin"
+            android:name=".AdminNavigationMainActivity"
+            android:exported="false"
+            android:label="@string/title_activity_admin_navigation_main"
+            android:theme="@style/Theme.GADSHealthTeam8.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.AdminAddTipsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.GADSHealthTeam8.NoActionBar"
+            >
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".admin.AdminLogin"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

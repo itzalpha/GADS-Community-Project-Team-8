@@ -88,7 +88,7 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
 
         }
 
-        val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").document(currentUserId)
+        val dob = db.collection("HealthTips").document("Admin").collection("Favorite").document(myUserId.toString()).collection("Users").document(currentUserId)
         checkLike(dob ,holder.quote_image_like  )
 
         holder.quote_image_share.setOnClickListener {
@@ -101,7 +101,7 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
         }
 
 
-        db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").get()
+        db.collection("HealthTips").document("Admin").collection("Favorite").document(myUserId.toString()).collection("Users").get()
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     var count = 0
@@ -134,11 +134,6 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
         return userList.size
     }
 
-    @SuppressLint("NotifyDataSetChanged")
-    fun Filteredlist(filterlist: ArrayList<TipsModel>) {
-        userList = filterlist
-        notifyDataSetChanged()
-    }
 
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val quote = view.item_tip_text

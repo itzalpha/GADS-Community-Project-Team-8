@@ -1,18 +1,24 @@
 package com.example.gadshealthteam8.ui.lifestyles
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.graphics.Rect
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.Px
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.example.gadshealthteam8.Adapter.TipsItemAdapter
 import com.example.gadshealthteam8.databinding.FragmentHomeBinding
 import com.example.gadshealthteam8.model.TipsModel
 import com.google.firebase.firestore.*
+
 
 class HomeFragment : Fragment() {
 
@@ -37,9 +43,11 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         val recyclerView : RecyclerView = binding.recyclerview
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        recyclerView.layoutManager = LinearLayoutManager(context ,  LinearLayoutManager.HORIZONTAL,false)
         recyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
+        val snapHelper: SnapHelper = PagerSnapHelper()
+        snapHelper.attachToRecyclerView(recyclerView)
         myAdapter = context?.let { TipsItemAdapter(it, userArrayList) }!!
         recyclerView.adapter = myAdapter
         EventChangeListener()
@@ -49,21 +57,6 @@ class HomeFragment : Fragment() {
         return root
     }
 
-
-
-    private fun filters(search: String) {
-        val filterlist: java.util.ArrayList<TipsModel> = java.util.ArrayList<TipsModel>()
-        for (  item in userArrayList) {
-            if (item.HealthTipsCategory?.toLowerCase()
-                    ?.contains(search.toLowerCase()) == true
-
-            ) {
-                filterlist.add(item)
-            }
-        }
-        myAdapter.Filteredlist(filterlist)
-
-    }
 
     private fun EventChangeListener() {
 
@@ -99,5 +92,3 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 }
-
-

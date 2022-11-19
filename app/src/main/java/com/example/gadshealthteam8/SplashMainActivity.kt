@@ -1,5 +1,6 @@
 package com.example.gadshealthteam8
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
@@ -112,12 +113,15 @@ class SplashMainActivity : AppCompatActivity() {
 
     }
 
+    @SuppressLint("SimpleDateFormat")
     private fun UserAddedToDatabase(personName: String?, personFamily: String?, personGivenName: String?, personEmail: String?, personId: String?, personPhoto: Uri?) {
         val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
         val now = Date()
         val date = formatter.format(now)
 
-        val db = FirebaseUtils().fireStoreDatabase.collection("HealthTips").document("Google Authenticated Users").collection("Health Tips Users")
+        val db = FirebaseUtils().fireStoreDatabase.collection("HealthTips").document("Google Authenticated Users").collection("Health Tips Users").document(
+            personId.toString()
+        )
         val docId : String = db.id
         val hashMap = hashMapOf<String , Any>(
             "PersonName" to personName.toString() ,
@@ -131,7 +135,7 @@ class SplashMainActivity : AppCompatActivity() {
 
         )
 
-        db.add(hashMap)
+        db.set(hashMap)
             .addOnSuccessListener {
                 Log.d("MainActivity", "Success")
 

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+
+    <item android:title="Admin Health Categories"
+
+        >
+
+        <menu
+            >
+
+            <group android:checkableBehavior="single">
+
+
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/lifestyle"
+                    android:title="LifeStyle" />
+                <item
+                    android:id="@+id/nav_gallery"
+                    android:icon="@drawable/nutrition"
+                    android:title="Nutrition" />
+                <item
+                    android:id="@+id/nav_slideshow"
+                    android:icon="@drawable/diseases"
+                    android:title="Diseases" />
+
+                <item
+                    android:id="@+id/nav_daily"
+                    android:icon="@drawable/mental"
+                    android:title="Mental"
+                    android:checkableBehavior="single"
+                    />
+                <item
+
+                    android:id="@+id/nav_books"
+                    android:icon="@drawable/random"
+                    android:title="Random" />
+
+
+
+            </group>
+
+        </menu>
+
+    </item>
+
+
+
+</menu>
