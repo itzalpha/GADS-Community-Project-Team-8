@@ -71,7 +71,7 @@ class BooksFragment : Fragment() {
                         }
                         myAdapter.notifyDataSetChanged()
                     }
-
+                    myAdapter.notifyDataSetChanged()
 
 
                 }

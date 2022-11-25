@@ -1,5 +1,6 @@
 package com.example.gadshealthteam8.ui.lifestyles
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -90,7 +91,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
         }
 
         binding.tipInfoImageLike.setOnClickListener {
-            val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
+            val dob = db.collection("HealthTips").document("Admin").collection("Favorite").document(docId.toString()).collection("Users").document(currentUserId)
 
 
             dob.get().addOnCompleteListener {  task ->
@@ -100,7 +101,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
                 }else
                 {
 
-                       val doc = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
+                       val doc = db.collection("HealthTips").document("Admin").collection("Favorite").document(docId.toString()).collection("Users").document(currentUserId)
 
                     val hashMap = hashMapOf<String , Any>(
                         "UserLikedId" to currentUserId ,
@@ -118,7 +119,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
         }
 
 
-        db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").get()
+        db.collection("HealthTips").document("Admin").collection("Favorite").document(docId.toString()).collection("Users").get()
 
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
@@ -134,7 +135,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
             }
 
 
-        val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(docId.toString()).collection("Users").document(currentUserId)
+        val dob = db.collection("HealthTips").document("Admin").collection("Favorite").document(docId.toString()).collection("Users").document(currentUserId)
 
         checkLike(dob , binding.imageLike )
 
@@ -165,20 +166,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
         EventChangeListener()
 
 
-        val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-        db.collection("HealthTips").document("Admin").collection("Reviews").document("HealthTipsReviews").collection(docId).get()
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    var count = 0
-                    for (document in task.result) {
-                        count++
-                    }
-                    Log.d("TAG", count.toString() + "")
-                    tip_recycler_count.text = (count.toString() + "")
-                } else {
-                    Log.d("Tag", "Error getting documents: ", task.exception)
-                }
-            }
+
 
 
     }
@@ -187,6 +175,7 @@ class TipsFullInfoActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         db.collection("HealthTips").document("Admin").collection("Reviews").document("HealthTipsReviews").collection(docId)
             .addSnapshotListener(object : EventListener<QuerySnapshot> {
+                @SuppressLint("NotifyDataSetChanged")
                 override fun onEvent(value: QuerySnapshot?,
                                      error: FirebaseFirestoreException?) {
                     if (error != null){
@@ -196,9 +185,9 @@ class TipsFullInfoActivity : AppCompatActivity() {
                     for (dc : DocumentChange in  value?.documentChanges!!){
                         if (dc.type == DocumentChange.Type.ADDED){
                             userArrayList.add(dc.document.toObject(ReviewModel::class.java))
-
+                            myAdapter.notifyDataSetChanged()
                         }
-
+                        myAdapter.notifyDataSetChanged()
                     }
                     myAdapter.notifyDataSetChanged()
 

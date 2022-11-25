@@ -78,7 +78,7 @@ class DailyFragment : Fragment() {
                         }
                         myAdapter.notifyDataSetChanged()
                     }
-
+                    myAdapter.notifyDataSetChanged()
 
 
                 }

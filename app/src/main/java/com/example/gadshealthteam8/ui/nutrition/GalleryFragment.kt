@@ -79,7 +79,7 @@ class GalleryFragment : Fragment() {
                         }
                         myAdapter.notifyDataSetChanged()
                     }
-
+                    myAdapter.notifyDataSetChanged()
 
 
                 }

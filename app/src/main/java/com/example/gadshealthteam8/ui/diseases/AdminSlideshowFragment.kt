@@ -77,7 +77,7 @@ class AdminSlideshowFragment : Fragment() {
                         }
                         myAdapter.notifyDataSetChanged()
                     }
-
+                    myAdapter.notifyDataSetChanged()
 
 
                 }

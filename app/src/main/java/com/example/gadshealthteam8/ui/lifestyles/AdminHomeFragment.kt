@@ -77,7 +77,7 @@ class AdminHomeFragment : Fragment() {
                         myAdapter.notifyDataSetChanged()
                     }
 
-
+                    myAdapter.notifyDataSetChanged()
 
                 }
 

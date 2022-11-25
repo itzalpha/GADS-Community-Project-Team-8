@@ -81,7 +81,7 @@ class AdminGalleryFragment : Fragment() {
                         myAdapter.notifyDataSetChanged()
                     }
 
-
+                    myAdapter.notifyDataSetChanged()
 
                 }
 

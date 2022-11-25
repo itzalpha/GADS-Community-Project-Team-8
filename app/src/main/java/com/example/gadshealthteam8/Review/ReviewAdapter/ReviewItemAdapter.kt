@@ -21,18 +21,12 @@ class ReviewItemAdapter(val context : Context , private val userList : ArrayList
         return ViewHolder(itemView)
 
     }
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user : ReviewModel = userList[position]
       holder.review_comments.text = user.UserReviewComment
         holder.review_user_name.text = user.UserReviewName
 
         Glide.with(context).load(user.UserReviewImage).into( holder.review_image)
-
-
-
-
-
 
     }
 

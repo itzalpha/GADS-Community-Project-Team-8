@@ -1,6 +1,5 @@
 package com.example.gadshealthteam8.Adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
@@ -8,15 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gadshealthteam8.R
-
 import com.example.gadshealthteam8.model.TipsModel
 import com.example.gadshealthteam8.admin.AdminTipsFullInfoActivity
-
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.admin_item_tips_list.view.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class AdminTipsItemAdapter(val context: Context, private var userList : ArrayList<TipsModel>) :
@@ -42,15 +36,6 @@ class AdminTipsItemAdapter(val context: Context, private var userList : ArrayLis
             personPhoto = acct.photoUrl.toString()
         }
 
-        // TODO:Public Information
-        val id = FirebaseAuth.getInstance().currentUser
-        val currentUserId = id!!.uid
-        val myUserId = user.HealthTipsDocumentId
-        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
-        val now = Date()
-        val date = formatter.format(now)
-        val db = FirebaseFirestore.getInstance()
-
         // TODO:Assign Value to xml object
         holder.quote.text = user.HealthTips
 
@@ -69,11 +54,9 @@ class AdminTipsItemAdapter(val context: Context, private var userList : ArrayLis
         return userList.size
     }
 
-
     class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
         val quote = view.item_tip_text
         val layout = view.tip_item_layout
-
     }
 
 }

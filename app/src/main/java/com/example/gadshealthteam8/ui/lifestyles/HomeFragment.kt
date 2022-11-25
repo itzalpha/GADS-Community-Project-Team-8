@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
                         myAdapter.notifyDataSetChanged()
                     }
 
-
+                    myAdapter.notifyDataSetChanged()
 
                 }
 

@@ -1,6 +1,5 @@
 package com.example.gadshealthteam8.Adapter
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
@@ -61,17 +60,17 @@ class TipsItemAdapter(val context: Context, private var userList : ArrayList<Tip
         // TODO:Perform Action in xml object
 
         holder.quote_image_like.setOnClickListener {
-            val dob = db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").document(currentUserId)
+            val dob = db.collection("HealthTips").document("Admin").collection("Favorite").document(myUserId.toString()).collection("Users").document(currentUserId)
 
             dob.get().addOnCompleteListener {  task ->
 
                 if (task.result.exists()){
-                    db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").document(currentUserId).delete()
+                    db.collection("HealthTips").document("Admin").collection("Favorite").document(myUserId.toString()).collection("Users").document(currentUserId).delete()
                     Toast.makeText(context , "Unlike " , Toast.LENGTH_LONG).show()
                 }else
                 {
 
-                    val doc = db.collection("HealthTips").document("Admin").collection("Likes").document(myUserId.toString()).collection("Users").document(currentUserId)
+                    val doc = db.collection("HealthTips").document("Admin").collection("Favorite").document(myUserId.toString()).collection("Users").document(currentUserId)
 
                     val hashMap = hashMapOf<String , Any>(
                         "UserLikedId" to currentUserId ,

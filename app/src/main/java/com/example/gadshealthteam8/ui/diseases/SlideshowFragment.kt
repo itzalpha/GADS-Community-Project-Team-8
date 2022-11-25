@@ -79,7 +79,7 @@ class SlideshowFragment : Fragment() {
                         myAdapter.notifyDataSetChanged()
                     }
 
-
+                    myAdapter.notifyDataSetChanged()
 
                 }
 

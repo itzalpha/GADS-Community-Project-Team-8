@@ -30,6 +30,7 @@ class AdminBooksFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,6 +44,7 @@ class AdminBooksFragment : Fragment() {
         userArrayList = arrayListOf()
         myAdapter = context?.let { AdminTipsItemAdapter(it, userArrayList) }!!
         recyclerView.adapter = myAdapter
+        myAdapter.notifyDataSetChanged()
         EventChangeListener()
 
 
@@ -67,14 +69,16 @@ class AdminBooksFragment : Fragment() {
                     for (dc : DocumentChange in  value?.documentChanges!!){
                         if (dc.type == DocumentChange.Type.ADDED){
                             userArrayList.add(dc.document.toObject(TipsModel::class.java))
-                            myAdapter.notifyDataSetChanged()
+                           myAdapter.notifyDataSetChanged()
                         }
                         myAdapter.notifyDataSetChanged()
                     }
-
+                    myAdapter.notifyDataSetChanged()
 
 
                 }
+
+
 
             })
 
